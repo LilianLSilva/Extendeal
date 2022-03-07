@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "378251e4-717b-48b6-ad81-df55f4764e01",
+		"name": "Extendeal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cuadros",
+			"item": [
+				{
+					"name": "Create Cuadro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner_id\" : 2,\n    \"brand\" : \"Ford\",\n    \"model\" : \"Ka\",\n    \"year\" : 2020,\n    \"license_plate\" : \"4234234mmm\",\n    \"color\" : \"Gold\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/autos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cuadro",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner_id\" : 2,\n    \"brand\" : \"Ford\",\n    \"model\" : \"Focus\",\n    \"year\" : 2020,\n    \"license_plate\" : \"43434\",\n    \"color\" : \"Gold\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/autos/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autos",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Cuadros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/autos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cuadro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/autos/88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autos",
+								"88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cuadro",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/autos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

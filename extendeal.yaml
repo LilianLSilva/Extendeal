@@ -1,0 +1,168 @@
+
+openapi: 3.0.1
+info:
+  title: Examen Técnico para Extendeal
+  description: En una arquitectura de microservicios se crea un modulo que administra los cuadro de un museo.
+  version: 1.0.0
+servers:
+- url: http://{BASE_URL}/api
+tags:
+- name: cuadros
+  description: Se obtiene la informacion en forma de lista de los cuadros.
+paths:
+  /cuadros:
+    get:
+      tags:
+      - cuadros
+      description: Obtiene la lista de todos los cuadros.
+      parameters:
+        - name: search
+          in: query
+          description: Se puede buscar y filtrar informacion de los campos, titulo, autor, medidas, tecnica, material, anio.
+          required: false
+          schema: 
+            type: string
+            example: "Diego Velazquez"
+        - name: fields
+          in: query
+          description: Se puede filtar informacion de los campos que se quieren mostrar, ya sea para  titulo, autor, medidas, tecnica, material, anio.
+          required: false
+          schema: 
+            type: string
+            example: "titulo,autor,anio"
+        - name: X-HTTP-USER-ID
+          in: header
+          description: Id del usuario que desea usar este recurso.
+          required: false
+          schema: 
+            type: integer
+            example: 1
+      responses:
+        200:
+          description: (OK) La informacion se obtuvo correctamente.
+        422:
+          description: (ERROR) No se pudo obtener la informacion.
+    post:
+      tags:
+      - cuadros
+      description: Crea un nuevo cuadro               
+      parameters:
+        - in: body
+          name: cuadro
+          description: propiedades requeridas para crear un cuadro
+          schema: 
+            type: object
+            properties:
+              titulo:
+                type: string
+                description: Titulo del cuadro
+                example: "Las meninas"
+              autor:
+                type: string
+                description: Autor del cuadro
+                example: "Diego Velazquez"
+              medidas:
+                type: string
+                description: medidas del cuadro
+                example: "130 de alto x 150 de ancho"
+              tecnica:
+                type: string
+                description: tecnica utilizada para pintar del cuadro
+                example: "oleo"
+              material:
+                type: string
+                description: Material
+                example: "lienzo"
+              anio:
+                type: integer
+                description: Anio del cuadro
+                example: 1649
+      
+      responses:
+        201:
+          description: (OK) La informacion se obtuvo correctamente.
+        422:
+          description: (ERROR) No se pudo obtener la informacion.
+  /cuadros/{id}:
+    get:
+      tags:
+      - cuadros
+      description: Se obtiene el cuadro a traves de su ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: id del cuadro
+          schema: 
+            type: number
+            example: 5
+      responses:
+        200:
+          description: (OK) La informacion se obtuvo correctamente.
+        422:
+          description: (ERROR) No se pudo obtener la informacion.
+    put:
+      tags:
+      - cuadros
+      description: Modifica el cuadro
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: id del cuadro
+          schema: 
+            type: number
+            example: 5
+        - in: body
+          name: cuadro
+          description: Propiedades requeridas para modificar un cuadro
+          schema: 
+            type: object
+            properties:
+              titulo:
+                type: string
+                description: Titulo del cuadro
+                example: "Las meninas"
+              autor:
+                type: string
+                description: Autor del cuadro
+                example: "Diego Velazquez"
+              medidas:
+                type: string
+                description: medidas del cuadro
+                example: "130 de alto x 150 de ancho"
+              tecnica:
+                type: string
+                description: tecnica utilizada para pintar del cuadro
+                example: "oleo"
+              material:
+                type: string
+                description: Material
+                example: "lienzo"
+              anio:
+                type: integer
+                description: Anio del cuadro
+                example: 1649
+      responses:
+        200:
+          description: (OK) La informacion se obtuvo correctamente.
+        422:
+          description: (ERROR) No se pudo obtener la informacion.
+    delete:
+      tags:
+      - cuadros
+      description: Elimina un cuadro a traves de su ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: id del cuadro
+          schema: 
+            type: number
+            example: 5
+      responses:
+        200:
+          description: (OK) La informacion se obtuvo correctamente.
+        422:
+          description: (ERROR) No se pudo obtener la informacion.
+   
