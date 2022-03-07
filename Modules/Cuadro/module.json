@@ -1,0 +1,13 @@
+{
+    "name": "Cuadro",
+    "alias": "cuadro",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Cuadro\\Providers\\CuadroServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
