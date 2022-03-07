@@ -64,6 +64,10 @@ class CuadroController extends Controller
     {
         try {
             $cuadro = $this->cuadroService->get($id);
+            if(empty($cuadro)){
+                return response()->json(["res" => false, "error" => "No existe un registro con el id ".$id], 400);
+            }
+            return $cuadro;
         } catch(\Exception $e){
             return $e;
         }

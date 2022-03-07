@@ -21,7 +21,7 @@ class BaseRepository
 
     public function get(int $id)
     {
-        return $this->model->findOrFail($id);
+        return $this->model->find($id);
     }
 
     public function save(Model $model)
